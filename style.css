@@ -1,0 +1,178 @@
+@font-face{font-family:'fontca26c412eca7bdcf97850d597f3a9352';src:url('https://nomail.com.ua/files/eot/ca26c412eca7bdcf97850d597f3a9352.eot?#iefix') format('embedded-opentype'),url('https://nomail.com.ua/files/woff/ca26c412eca7bdcf97850d597f3a9352.woff') format('woff'),url('https://nomail.com.ua/files/woff2/ca26c412eca7bdcf97850d597f3a9352.woff2') format('woff2');}@font-face{font-family:'FugueHead';src:local('FugueHead'),url('https://nomail.com.ua/files/woff/ca26c412eca7bdcf97850d597f3a9352.woff') format('woff');}#fuguehead{font-family:'FugueHead';}.fontca26c412eca7bdcf97850d597f3a9352{font-family:'fontca26c412eca7bdcf97850d597f3a9352';}
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+html,body{
+	padding:0;
+	margin:0;
+}
+header{
+	position:fixed;
+	display: flex;
+	align-content: space-between;
+	justify-content: space-between;
+	width:100%;
+}
+section{
+	display: flex;
+}
+footer{
+	height:15vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width:100%;
+	font-family: Nunito;
+	font-size: 14px;
+}
+article{
+	width: 50vw;
+	height: 80vh;
+}
+
+/*header*/
+.card2btc-logo{
+	font-family: FugueHead;
+	margin-left:7vw;
+}
+.we-accept-block{
+	width: 160px;
+	display: flex;
+	align-items: center;
+	margin-right:5vw;
+}
+.we-accept-text{
+	font-family: Rubik;
+	font-weight: lighter;
+	width:70px;
+	color:#999999;
+	font-size: 12px;
+}
+.visa-img{
+	height: 22px;
+}
+/*header-end*/
+
+/*#mainSection*/
+
+.yellow-left-side{
+	background: -moz-linear-gradient(top, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	font-family: Nunito;
+}
+.yellow-left-side p{
+	margin-left: 7vw;
+}
+.buy-bitcoins-text{
+	margin-top: 7vw;
+	font-size: 52px;
+	font-weight: bold;
+	width:500px;
+}
+.smooth-secure-text{
+	font-size: 30px;
+	opacity:.5;
+}
+.now-we-sell-btc-text{
+	font-size: 36px;
+}
+.question-mark{
+	width:20px;
+	height:20px;
+}
+
+
+.white-right-side{
+	background-color:#f5f4ed;
+	font-family: Nunito;
+}
+.form-field{
+	margin: 7vw 0 0 10vw;
+	font-size:36px;
+
+}
+.form-field div {
+	width:500px;
+	height:50px;
+	border-bottom:2px solid lightgray;
+	margin-bottom: 70px;
+}
+
+.you-pay-usd,
+.you-get-btc{
+	font-weight: bold;
+}
+
+.first-input input,
+.second-input input{
+	border: none;
+	width:270px;
+	background-color: #f5f4ed;
+	text-align: right;
+	font-size: 36px;
+}
+.second-input input{
+	width:275px;
+}
+.first-input input:focus,
+.second-input input:focus{
+	outline: none;
+}
+.next-button{
+	font-family: Nunito;
+	width:500px;
+	height:90px;
+	border-radius: 3px;
+	border: none;
+	background-color: #2e3ce8;
+	color:white;
+	font-size: 36px;
+	font-weight: bold;
+}
+/*#mainSection-end*/
+
+/*footer*/
+.first-footer-part{
+	margin-left: 7vw;
+}
+.second-footer-part{
+	width: 195px;
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+}
+.twitter-logo-img{
+	height: 17px;
+}
+.fb-logo-img{
+	height:22px;
+}
+.third-footer-part{
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	margin-right:7vw;
+	width:225px;
+}
+
+.we-guarantee-security-text{
+	width:190px;
+	text-align: right;
+}
+
+/*footer-end*/
+
+.licence-n-rights{
+	font-family: Nunito;
+	display: flex;
+	height:5vh;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: 14px;
+	color:#999999;
+	margin-right: 7vw ;
+}
+.licence-n-rights p {
+	margin-left: 30px;
+}
