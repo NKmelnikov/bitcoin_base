@@ -10,6 +10,8 @@ var checkedFirst = $('.checked-first');
 var checkedSecond = $('.checked-second');
 var wrongWallet = $('.wrong-wallet');
 var wrongEmail = $('.wrong-email');
+var rightArea = $('.right-area');
+var rightAreaSecond = $('.right-area-second');
 
 firstInput.on('input',function () {
 	var usdVal = $(this).val();
@@ -38,7 +40,13 @@ mainNextButton.click(function () {
 secondBackArrow.click(function () {
 	// $('#2').hide('slide', { direction: 'right' }, 500);
 	// $('#1').show('slide', { direction: 'left' }, 500);
-	$('#2').fadeOut('normal', function(){ $('#1').fadeIn('normal'); });
+	if (rightAreaSecond.is(":visible")) {
+		rightAreaSecond.fadeOut('normal', function(){ rightArea.fadeIn('normal'); });
+	} else {
+		$('#2').fadeOut('normal', function(){ $('#1').fadeIn('normal'); });
+	}
+
+
 });
 
 $('.first-input-container input,.second-input-container input').blur(function(){
@@ -80,20 +88,26 @@ emailInput.on('input',function () {
 
 });
 secondNextButton.click(function () {
-
 	if (bitcoinWalletAddress.val().length <= 26 || bitcoinWalletAddress.val().length >= 35) {
 		bitcoinWalletAddress.addClass('warning');
 		wrongWallet.show();
+		$('.btc-address').text('...in progress');
 	}
 	if(isValidEmailAddress(emailInput.val()) === false){
 		emailInput.addClass('warning');
 		wrongEmail.show();
 	}
-
 	if(checkedFirst.is(":visible") && checkedSecond.is(":visible")){
-		console.log('moved');
+		rightArea.fadeOut('normal', function(){ rightAreaSecond.fadeIn('normal'); });
+		$('.btc-address').text(bitcoinWalletAddress.val());
+		$('.btc-address-container').show();
 	}
+
 });
+
+// -----
+
+
 
 
 function isValidEmailAddress(emailAddress) {

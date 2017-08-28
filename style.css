@@ -272,6 +272,21 @@ footer{
 	font-weight: bold;
 	padding-left: 10px;
 }
+.btc-address-container{
+	display: none;
+	margin-top: 5vh;
+}
+.btc-address-text,.btc-address{
+	margin-left: 4vw;
+}
+.btc-address{
+	width: 600px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 0;
+}
+/*right-area*/
+
 .right-area{
 	position: relative;
 	width: 60vw;
@@ -357,6 +372,39 @@ footer{
 }
 .create-wallet-btn:active{
 	transform:scale(.95);
+}
+/*right-area-second*/
+
+.right-area-second{
+	display: none;
+	position: relative;
+	width: 60vw;
+}
+.right-area-second p, .right-area-second img, .right-area-second button{
+	margin-left: 5vw;
+}
+.check-the-details-text{
+	position: absolute;
+	top:1vh;
+	font-size: 30px;
+	width:350px;
+}
+.hand-with-card{
+	position: absolute;
+	top: 17vh;
+	width:25%;
+	height:30%;
+}
+.you-ll-be-redirected-text{
+	position: absolute;
+	top:27vh;
+	left:15vw;
+	font-size: 16px;
+	width:300px;
+}
+.right-area-second .next-button{
+	position: absolute;
+	bottom: 5vh;
 }
 /*second-section-end*/
 
