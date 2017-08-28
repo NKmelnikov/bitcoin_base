@@ -219,5 +219,5 @@ function resetState() {
 	$('.we-accept-block').show();
 	$('.back-arrow-container').hide();
 	$('.saved-for-text').html('Exchange rate saved for<b>15:46</b>');
-	buttonDeactivation();
+	buttonDeactivation(mainNextButton);
 }
