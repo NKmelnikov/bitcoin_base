@@ -42,6 +42,7 @@ mainNextButton.click(function () {
 	var chosenBtc  = secondInput.val();
 	$('.usd-second-span').text(chosenUsd);
 	$('.btc-second-span').text(chosenBtc);
+	$('.back-arrow-container').show();
 });
 secondBackArrow.click(function () {
 	if (rightAreaCheck.is(":visible")) {
@@ -92,7 +93,7 @@ emailInput.on('input',function () {
 
 });
 secondNextButton.click(function () {
-	if (bitcoinWalletAddress.val().length <= 26 || bitcoinWalletAddress.val().length >= 35) {
+	if (bitcoinWalletAddress.val().length < 26 || bitcoinWalletAddress.val().length > 35) {
 		bitcoinWalletAddress.addClass('warning');
 		wrongWallet.show();
 		$('.btc-address').text('...in progress');
@@ -118,10 +119,7 @@ successButton.click(function () {
 	$('.t-hash').text(bitcoinWalletAddress.val());
 	$('.transaction-hash-container').show();
 	$('.we-accept-block').hide();
-	$('.back-arrow-rectangle').hide();
-	$('.back-arrow-text').hide();
-
-
+	$('.back-arrow-container').hide();
 });
 
 newPaymentButton.click(function () {
@@ -137,8 +135,7 @@ errorButton.click(function () {
 	$('.transaction-hash-container').show();
 	rightAreaError.hide();
 	$('.we-accept-block').hide();
-	$('.back-arrow-rectangle').hide();
-	$('.back-arrow-text').hide();
+	$('.back-arrow-container').hide();
 });
 //------
 
@@ -147,8 +144,7 @@ payAgainButton.click(function () {
 	$('.we-accept-block').show();
 	$('.second-section').removeClass('error-gradient');
 	$('.left-area').removeClass('error-left-side-gradient');
-	$('.back-arrow-rectangle').show();
-	$('.back-arrow-text').show();
+	$('.back-arrow-container').hide();
 });
 
 //------
@@ -189,6 +185,5 @@ function resetState() {
 	firstInput.val('');
 	secondInput.val('');
 	$('.we-accept-block').show();
-	$('.back-arrow-rectangle').hide();
-	$('.back-arrow-text').hide();
+	$('.back-arrow-container').hide();
 }
