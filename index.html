@@ -4,10 +4,11 @@
 	        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	        <title>card2btc</title>
 		<link rel="stylesheet" href="style.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
 	</head>
 	<body>
 		<header>
-
 			<p class="card2btc-logo"><b>CARD2BTC</b></p>
 
 			<div class="we-accept-block">
@@ -17,37 +18,77 @@
 				     class="visa-img">
 			</div>
 		</header>
-		<section id="mainSection">
+		<section id="1" class="main-section">
 			<article class="yellow-left-side">
 				<p class="buy-bitcoins-text">Buy Bitcoins<br>
 					with your bank card<br>
 					in 1 minute</p>
 				<p class="smooth-secure-text">Smooth, secure & no signing up</p>
-				<p class="now-we-sell-btc-text">Now we sell BTC for <b>4,010.94 USD</b>
+				<p class="now-we-sell-btc-text">Now we sell BTC for <b>4,500.00 USD</b>
 					<img src="/img/question-mark.png"
 					     alt="(?)"
 					     class="question-mark">
 					<span class="notice">The rate updated every minute
-					and is calculated based on the sourcepage.com
+						and is calculated based on the <u>sourcepage.com</u>
 					rate and concerning the service fee </span><br>
 					A totally fair exchange rate</p>
-
-
-
 			</article>
 			<article class="white-right-side">
-				<div class="form-field">
-					<div class="first-input">
+				<div class="main-form-field">
+					<div class="first-input-container">
 						<span class="you-pay-text">You pay</span>
-						<input type="text" placeholder="100">
+						<input type="number" placeholder="100">
 						<span class="you-pay-usd">USD</span>
 					</div>
-					<div class="second-input">
-						<span class="you-get-text">you get</span>
-						<input type="text" placeholder="0.02528">
+					<div class="second-input-container">
+						<span class="you-get-text">You get</span>
+						<input type="number" placeholder="0,023">
 						<span class="you-get-btc">BTC</span>
 					</div>
-					<button class="next-button">Next</button>
+					<button class="next-button"><span>Next</span></button>
+				</div>
+			</article>
+		</section>
+		<section id="2" class="second-section">
+			<div class="back-arrow-text">
+				Back
+			</div>
+			<div class="back-arrow-rectangle"></div>
+
+			<article class="working-zone">
+				<div class="left-area">
+					<div class="top-side">
+						<img src="/img/clock.png"
+						     alt=""
+						     class="clock-img">
+						<div class="exchange-text-container">
+							<p class="saved-for-text">Exchange rate saved for <b>15:46</b></p>
+							<p class="exchange-rate-text">1 BTC = 4340,7 USD</p>
+						</div>
+					</div>
+					<div class="bot-side">
+						<p class="you-pay-second-text">You pay <span class="usd-second-span">150</span><b>&nbsp USD</b></p>
+						<p class="you-get-second-text">You get <span class="btc-second-span">0.04</span><b>&nbsp BTC</b></p>
+					</div>
+				</div>
+
+				<div class="right-area">
+					<p class="where-to-send-text">Where to send BTC</p>
+					<input type="text" class="bitcoin-wallet-address" placeholder="Bitcoin wallet address" required>
+					<img src="/img/checked.png"
+					     alt="done"
+					     class="checked-first">
+					<p class="wrong-wallet">Address must contain 26-35 symbols</p>
+					<input type="email" class="email" placeholder="Your email" required>
+					<p class="wrong-email">Email seems invalid</p>
+					<img src="/img/checked.png"
+					     alt="done"
+					     class="checked-second">
+					<button class="next-button"><span>Next</span></button>
+					<div class="have-a-wallet-container">
+						<span class="have-wallet-text">Do not have a wallet?</span>
+						<button class="create-wallet-btn">Create</button>
+					</div>
 				</div>
 			</article>
 		</section>
@@ -77,6 +118,8 @@
 				<p class="terms-of-use">Terms of Use</p>
 				<p class="copy-rights">© 2017 Card2btc</p>
 		</div>
+
+		<script src="js/app.js"></script>
 
 	</body>
 </html>

@@ -18,6 +18,7 @@ section{
 	display: flex;
 	z-index: -9999;
 	width: 100%;
+	height: 85vh;
 }
 footer{
 	position: absolute;
@@ -30,7 +31,7 @@ footer{
 	font-size: 14px;
 	bottom: 5vh;
 }
-article{
+.main-section article{
 	width: 50vw;
 	height: 85vh;
 }
@@ -63,9 +64,9 @@ article{
 .yellow-left-side{
 	position: relative;
 	z-index: -100;
-	background: -moz-linear-gradient(top, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(135deg, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(135deg, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	font-family: Nunito;
 }
 .yellow-left-side p{
@@ -111,19 +112,18 @@ article{
 
 .question-mark:hover + .notice{
 	display: block;
-
 }
 
 .white-right-side{
 	background-color:#f5f4ed;
 	font-family: Nunito;
 }
-.form-field{
+.main-form-field{
 	margin: 7vw 0 0 5vw;
 	font-size:36px;
 
 }
-.form-field div {
+.main-form-field div {
 	width:500px;
 	height:50px;
 	border-bottom:2px solid lightgray;
@@ -135,19 +135,19 @@ article{
 	font-weight: bold;
 }
 
-.first-input input,
-.second-input input{
+.first-input-container input,
+.second-input-container input{
 	border: none;
 	width:270px;
 	background-color: #f5f4ed;
 	text-align: right;
 	font-size: 36px;
 }
-.second-input input{
-	width:275px;
+.second-input-container input{
+	width:276px;
 }
-.first-input input:focus,
-.second-input input:focus{
+.first-input-container input:focus,
+.second-input-container input:focus{
 	outline: none;
 }
 .next-button{
@@ -162,14 +162,204 @@ article{
 	font-weight: bold;
 	transition: 0.1s;
 }
-.next-button:hover{
-	transform: scale(1.05);
-}
 .next-button:active{
-	transform: scale(.95);
+	transform: scale(.99);
+	outline: none;
+}
+.next-button:focus{
+	outline: none;
+}
+.next-button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.next-button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.next-button:hover span {
+	padding-right: 25px;
+}
+
+.next-button:hover span:after {
+	opacity: 1;
+	right: 0;
 }
 
 /*#mainSection-end*/
+
+
+/*second-section*/
+
+.second-section{
+	background: -moz-linear-gradient(135deg, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(135deg, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(255,225,0,1) 0%, rgba(255,220,0,1) 62%, rgba(255,199,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	font-family: Nunito;
+	display: none;
+}
+.back-arrow-text{
+	position: absolute;
+	top:11vh;
+	left:6vw;
+	color:gray;
+	font-size: 18px;
+}
+.back-arrow-rectangle{
+	position: absolute;
+	top:11.2vh;
+	left:5vw;
+	display: inline-block;
+	width:15px;
+	height:15px;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+	transform: rotate(45deg);
+	transition: .2s ease;
+}
+.back-arrow-text:hover + .back-arrow-rectangle{
+	left:4.8vw;
+
+}
+
+.working-zone{
+	margin: 15vh 0 0 5vw;
+	width:90vw;
+	height: 60vh;
+	background-color: white;
+	display: flex;
+}
+
+.left-area{
+	background-color: #fff2ba;
+	width:30vw;
+	height:100%;
+}
+.top-side{
+	margin-left: 4vw;
+	border-bottom: 1px solid lightgray;
+	width:26vw;
+	height:13vh;
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+}
+.clock-img{
+	width: 50px;
+	height:54px;
+}
+.exchange-text-container{
+
+}
+.saved-for-text,.exchange-rate-text
+{
+	margin: 0 0 0 20px;
+}
+.bot-side{
+	margin-left: 4vw;
+	font-size: 20px;
+}
+.usd-second-span,.btc-second-span{
+
+	font-weight: bold;
+	padding-left: 10px;
+}
+.right-area{
+	position: relative;
+	width: 60vw;
+}
+.right-area p, .right-area input, .right-area .next-button{
+	margin-left: 5vw;
+}
+.right-area img{
+	position: absolute;
+	display: none;
+	width:16px;
+	height:12px;
+}
+.where-to-send-text{
+	position: absolute;
+	top:1vh;
+	font-size: 30px;
+	width:300px;
+}
+.bitcoin-wallet-address,.email{
+
+	position: absolute;
+	font-family: Nunito;
+	font-weight: lighter;
+	font-size: 26px;
+	border: none;
+	border-bottom: 2px solid lightgray;
+}
+.bitcoin-wallet-address{
+	top:17vh;
+	width:45vw;
+}
+.checked-first{
+
+	top:18vh;
+	right:10vw;
+}
+
+.email{
+	top:27vh;
+	width:35vw;
+}
+.checked-second{
+	top:28vh;
+	right:20vw;
+}
+.bitcoin-wallet-address:focus,
+.email:focus{
+	outline: none;
+}
+.right-area .next-button{
+	position: absolute;
+	bottom: 5vh;
+}
+.have-a-wallet-container{
+	position: absolute;
+	top:4vh;
+	right:2vw;
+	width:260px;
+}
+
+.have-wallet-text{
+	color: gray;
+	margin-right: 10px;
+}
+.create-wallet-btn{
+	width:auto;
+	height: auto;
+	padding:5px 15px;
+	font-size: 18px;
+	background-color: white;
+	border-radius: 7px;
+	border:2px solid #2e3ce8;
+	transition: .2s ease;
+}
+
+.create-wallet-btn:hover{
+	background-color: #2e3ce8;
+	color: white;
+}
+.create-wallet-btn:focus{
+	outline:none;
+}
+.create-wallet-btn:active{
+	transform:scale(.95);
+}
+/*second-section-end*/
+
 
 /*footer*/
 .first-footer-part{
@@ -221,12 +411,36 @@ article{
 
 
 /*----*/
+.wrong-wallet,.wrong-email{
+	color: #e37575;
+	position: absolute;
+	display: none;
+}
+.wrong-wallet{
+	top:20vh;
+}
+.wrong-email{
+	top:30vh;
+}
+.warning{
+	border-bottom: 2px solid #e37575!important;
+}
+.deactivated {
+	background-color: #5963dd;
+}
+.deactivated span:after{
+	content: " ";
+}
+.deactivated:hover span {
+	padding-right: 0;
+}
 .question-mark:hover,
 button:hover,
 .privacy-policy:hover,
 .terms-of-use:hover,
 .fb-logo-img:hover,
-.twitter-logo-img:hover
+.twitter-logo-img:hover,
+.back-arrow-text:hover
 {
 	cursor: pointer;
 }
