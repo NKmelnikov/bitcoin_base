@@ -57,12 +57,17 @@ mainNextButton.click(function () {
 	$('.usd-second-span').text(chosenUsd);
 	$('.btc-second-span').text(chosenBtc);
 	$('.back-arrow-container').show();
+	$('.we-accept-text').css('color','black');
 });
 secondBackArrow.click(function () {
 	if (rightAreaCheck.is(":visible")) {
 		rightAreaCheck.fadeOut('normal', function(){ rightArea.fadeIn('normal'); });
 	} else {
-		$('#2').fadeOut('normal', function(){ $('#1').fadeIn('normal'); });
+		$('#2').fadeOut('normal', function(){
+			$('#1').fadeIn('normal');
+			$('.we-accept-text').css('color','#999999');
+		});
+
 	}
 
 
@@ -164,7 +169,7 @@ payAgainButton.click(function () {
 		$('.second-section').removeClass('error-gradient');
 		$('.left-area').removeClass('error-left-side-gradient');
 		$('.back-arrow-container').show();
-		$('.saved-for-text').html('Exchange rate saved for<b>15:46</b>');
+		$('.saved-for-text').html('Exchange rate saved for <b>15:46</b>');
 
 });
 
@@ -218,6 +223,7 @@ function resetState() {
 	secondInput.val('');
 	$('.we-accept-block').show();
 	$('.back-arrow-container').hide();
-	$('.saved-for-text').html('Exchange rate saved for<b>15:46</b>');
+	$('.saved-for-text').html('Exchange rate saved for <b>15:46</b>');
+	$('.we-accept-text').css('color','#999999');
 	buttonDeactivation(mainNextButton);
 }
