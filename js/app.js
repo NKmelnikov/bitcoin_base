@@ -156,7 +156,7 @@ payAgainButton.click(function () {
 	$('.we-accept-block').show();
 	$('.second-section').removeClass('error-gradient');
 	$('.left-area').removeClass('error-left-side-gradient');
-	$('.back-arrow-container').hide();
+	$('.back-arrow-container').show();
 });
 
 //------

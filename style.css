@@ -372,7 +372,7 @@ footer {
 	width: 20vw;
 	color: gray;
 	height:3vh;
-	font-size: 1.3vw;
+	font-size: 1.2vw;
 	word-wrap: break-word;
 }
 .t-hash{
@@ -527,26 +527,26 @@ footer {
 }
 
 /*right-area-success*/
-
+.success-dialog-container{
+	position: absolute;
+	left: 5vw;
+	top: 19vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.success-dialog-container img {
+	margin-right:15px;
+}
 .right-area-success {
 	position: relative;
 	width: 60vw;
 	display: none;
 }
 
-.success-dialog-img {
-	position: absolute;
-	left: 5vw;
-	top: 19vh;
-	width: 82px;
-	height: 74px;
-}
-
 .money-in-wallet-text {
-	position: absolute;
-	top: 16vh;
-	left: 12vw;
-	font-size: 26px;
+	font-size: 22px;
 	width: 400px;
 }
 
@@ -581,19 +581,17 @@ footer {
 	display: none;
 }
 
-.error-dialog-img {
+.error-dialog-container {
 	position: absolute;
 	left: 5vw;
 	top: 19vh;
-	width: 82px;
-	height: 70px;
-
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 }
-
-.payment-declined-container {
-	position: absolute;
-	top: 17vh;
-	left: 12vw !important;
+.error-dialog-container img {
+	margin-right:15px;
 }
 
 .payment-was-declined-text {
