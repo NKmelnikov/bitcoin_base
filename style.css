@@ -1,33 +1,10 @@
-@font-face {
-	font-family: 'fontca26c412eca7bdcf97850d597f3a9352';
-	src: url('https://nomail.com.ua/files/eot/ca26c412eca7bdcf97850d597f3a9352.eot?#iefix') format('embedded-opentype'), url('https://nomail.com.ua/files/woff/ca26c412eca7bdcf97850d597f3a9352.woff') format('woff'), url('https://nomail.com.ua/files/woff2/ca26c412eca7bdcf97850d597f3a9352.woff2') format('woff2');
-}
-
+/*card2btc-logo-font*/
 @font-face {
 	font-family: 'FugueHead';
 	src: local('FugueHead'), url('https://nomail.com.ua/files/woff/ca26c412eca7bdcf97850d597f3a9352.woff') format('woff');
 }
 
-#fuguehead {
-	font-family: 'FugueHead';
-}
-
-.fontca26c412eca7bdcf97850d597f3a9352 {
-	font-family: 'fontca26c412eca7bdcf97850d597f3a9352';
-}
-
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,900');
-@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,700');
-
-@font-face {
-	font-family: 'Nunito', sans-serif;
-	src: url('https://fonts.googleapis.com/css?family=Nunito');
-}
-@font-face {
-	font-family: 'Rubik', sans-serif;
-	src: url('https://fonts.googleapis.com/css?family=Rubik');
-}
-
+/*main-config*/
 
 html, body {
 	padding: 0;
@@ -240,7 +217,7 @@ footer {
 	right: 0;
 }
 
-/*#mainSection-end*/
+/*mainSection-end*/
 
 /*second-section*/
 
@@ -417,7 +394,6 @@ footer {
 }
 
 .bitcoin-wallet-address, .email {
-
 	position: absolute;
 	font-family: 'Nunito', sans-serif;
 	font-weight: lighter;
@@ -432,7 +408,6 @@ footer {
 }
 
 .checked-first {
-
 	top: 18vh;
 	right: 10vw;
 }
@@ -493,15 +468,15 @@ footer {
 	transform: scale(.95);
 }
 
-/*right-area-check*/
+/*right-area-payment*/
 
-.right-area-check {
+.right-area-payment {
 	position: relative;
 	width: 60vw;
 	display: none;
 }
 
-.right-area-check button {
+.right-area-payment button {
 	margin-left: 5vw;
 }
 
@@ -533,18 +508,19 @@ footer {
 	width: 300px;
 }
 
-.right-area-check .next-button-success, .right-area-check .next-button-error {
+.right-area-payment .next-button-success, .right-area-payment .next-button-error {
 	width: 360px;
 	position: absolute;
 	bottom: 5vh;
 	font-size: 22px;
 }
 
-.right-area-check .next-button-error {
+.right-area-payment .next-button-error {
 	right: 5vw;
 }
 
 /*right-area-success*/
+
 .success-dialog-container{
 	position: absolute;
 	left: 5vw;
@@ -682,6 +658,8 @@ footer {
 
 /*footer-end*/
 
+/*licence-n-rights*/
+
 .licence-n-rights {
 	position: absolute;
 	bottom: 0;
@@ -700,7 +678,7 @@ footer {
 	margin-left: 30px;
 }
 
-/*terms - Of- use*/
+/*terms-of-use-container*/
 
 .terms-of-use-container {
 	width: 60vw;
@@ -735,36 +713,32 @@ footer {
 }
 
 /*----*/
+
+/*notifications*/
+
 .wrong-wallet, .wrong-email {
 	color: #e37575;
 	position: absolute;
 	display: none;
 }
-
 .wrong-wallet {
 	top: 20vh;
 }
-
 .wrong-email {
 	top: 30vh;
 }
-
 .warning {
 	border-bottom: 2px solid #e37575 !important;
 }
-
 .deactivated {
 	background-color: #5963dd;
 }
-
 .deactivated span:after {
 	content: " ";
 }
-
 .deactivated:hover span {
 	padding-right: 0;
 }
-
 .question-mark:hover,
 button:hover,
 .privacy-policy:hover,
@@ -783,7 +757,6 @@ button:hover,
 body:hover {
 	cursor: default;
 }
-
 /*------*/
 
 @media only screen and (max-width:1440px){

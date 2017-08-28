@@ -1,185 +1,216 @@
 
-var secondSection = $('.second-section');
-var leftArea = $('.second-section');
+var area = {
+	left:$('.left-area'),
+	right:$('.right-area'),
+	payment:$('.right-area-payment'),
+	success:$('.right-area-success'),
+	error:$('.right-area-error')
+};
+var button = {
+	mainNext:$('.main-form-field .next-button'),
+	secondNext:$('.right-area .next-button'),
+	success:$('.next-button-success'),
+	error:$('.next-button-error'),
+	newPayment:$('.new-payment'),
+	payAgain:$('.pay-again'),
+	backArrow:$('.second-section .back-arrow-text'),
+	terms:$('.terms-of-use'),
+	cross:$('.terms-cross')
+};
+var container = {
+	weAccept: $('.we-accept-container'),
+	transHash:$('.transaction-hash-container'),
+	back:$('.back-arrow-container'),
+	btc:$('.btc-address-container'),
+	terms:$('.terms-of-use-container')
+};
+var input = {
+	usd:$('.first-input-container input'),
+	btc:$('.second-input-container input'),
+	wallet:$('.bitcoin-wallet-address'),
+	email:$('.email')
+};
 
-var mainNextButton = $('.main-form-field .next-button');
-var secondNextButton = $('.right-area .next-button');
-var secondBackArrow = $('.second-section .back-arrow-text');
-var firstInput = $('.first-input-container input');
-var secondInput = $('.second-input-container input');
-var bitcoinWalletAddress = $('.bitcoin-wallet-address');
-var emailInput = $('.email');
-var checkedFirst = $('.checked-first');
-var checkedSecond = $('.checked-second');
-var wrongWallet = $('.wrong-wallet');
-var wrongEmail = $('.wrong-email');
-var rightArea = $('.right-area');
-var rightAreaCheck = $('.right-area-check');
-var successButton = $('.next-button-success');
-var errorButton = $('.next-button-error');
-var rightAreaSuccess = $('.right-area-success');
-var newPaymentButton = $('.new-payment');
-var rightAreaError = $('.right-area-error');
-var payAgainButton = $('.pay-again');
-var newPaymentAfterError = $('.right-area-error .new-payment');
+var notification = {
+	checkedWallet:$('.checked-first'),
+	checkedEmail:$('.checked-second'),
+	wrongWallet:$('.wrong-wallet'),
+	wrongEmail:$('.wrong-email')
+};
+var section = {
+	first:$('#1'),
+	second:$('#2')
+};
+var text = {
+	savedFor:$('.saved-for-text'),
+	weAccept: $('.we-accept-text'),
+	usdSpan: $('.usd-second-span'),
+	btcSpan: $('.btc-second-span'),
+	btcAddress: $('.btc-address'),
+	transHash: $('.t-hash')
+};
 
-console.log(getCurrentTime());
-
-firstInput.on('input',function () {
+input.usd.on('input',function () {
 	var usdVal = $(this).val();
-	secondInput.val((usdVal*0.00023).toFixed(5));
+	input.btc.val((usdVal*0.00023).toFixed(5));
 	if ($(this).val()<0){
 		$(this).val(0);
 	}
-	if(secondInput.val() < 0){
-		secondInput.val(0);
+	if(input.btc.val() < 0){
+		input.btc.val(0);
 	}
 	$('.first-input-container, .second-input-container').removeClass('warning');
-	buttonActivation(mainNextButton);
+	buttonActivation(button.mainNext);
 });
-secondInput.on('input',function () {
+
+input.btc.on('input',function () {
 	var btcVal = $(this).val();
-	firstInput.val((btcVal/0.00023).toFixed(2));
+	input.usd.val((btcVal/0.00023).toFixed(2));
 	if ($(this).val()<0){
 		$(this).val(0);
 	}
-	if(firstInput.val() < 0){
-		firstInput.val(0);
+	if(input.usd.val() < 0){
+		input.usd.val(0);
 	}
 	$('.first-input-container, .second-input-container').removeClass('warning');
-	buttonActivation(mainNextButton);
+	buttonActivation(button.mainNext);
 });
 
-mainNextButton.click(function () {
-	$('#1').fadeOut('normal', function(){ $('#2').fadeIn('normal'); });
-	var chosenUsd  = firstInput.val();
-	var chosenBtc  = secondInput.val();
-	$('.usd-second-span').text(chosenUsd);
-	$('.btc-second-span').text(chosenBtc);
-	$('.back-arrow-container').show();
-	$('.we-accept-text').css('color','black');
+button.mainNext.click(function () {
+	section.first.fadeOut('normal', function(){ section.second.fadeIn('normal'); });
+	var chosenUsd  = input.usd.val();
+	var chosenBtc  = input.btc.val();
+	text.usdSpan.text(chosenUsd);
+	text.btcSpan.text(chosenBtc);
+	container.back.show();
+	text.weAccept.css('color','black');
 });
-secondBackArrow.click(function () {
-	if (rightAreaCheck.is(":visible")) {
-		rightAreaCheck.fadeOut('normal', function(){ rightArea.fadeIn('normal'); });
+
+button.backArrow.click(function () {
+	if (area.payment.is(":visible")) {
+		area.payment.fadeOut('normal', function(){ area.right.fadeIn('normal'); });
 	} else {
-		$('#2').fadeOut('normal', function(){
-			$('#1').fadeIn('normal');
-			$('.we-accept-text').css('color','#999999');
+		section.second.fadeOut('normal', function(){
+			section.first.fadeIn('normal');
+			text.weAccept.css('color','#999999');
 		});
-
 	}
-
-
 });
 
 $('.first-input-container input,.second-input-container input').blur(function(){
 	if( !$(this).val() || $(this).val() <= 0) {
 		console.log($(this).val());
 		$(this).parent().addClass('warning');
-		buttonDeactivation(mainNextButton);
+		buttonDeactivation(button.mainNext);
 	}
 });
 
-if (!firstInput.val() || !secondInput.val() || firstInput.val() <= 0 || secondInput.val() <= 0) {
-	buttonDeactivation(mainNextButton);
+if (!input.usd.val() || !input.btc.val() || input.usd.val() <= 0 || input.btc.val() <= 0) {
+	buttonDeactivation(button.mainNext);
 }
 
 // --------
 
-if (!bitcoinWalletAddress.val() || !emailInput.val()) {
-	buttonDeactivation(secondNextButton);
+if (!input.wallet.val() || !input.email.val()) {
+	buttonDeactivation(button.secondNext);
 }
-bitcoinWalletAddress.on('input',function () {
-	buttonActivation(secondNextButton);
-	if(bitcoinWalletAddress.val().length >= 26 && bitcoinWalletAddress.val().length <= 35){
-		bitcoinWalletAddress.removeClass('warning');
-		checkedFirst.show();
-		wrongWallet.hide();
+input.wallet.on('input',function () {
+	buttonActivation(button.secondNext);
+	if(input.wallet.val().length >= 26 && input.wallet.val().length <= 35){
+		input.wallet.removeClass('warning');
+		notification.checkedWallet.show();
+		notification.wrongWallet.hide();
 	} else {
-		checkedFirst.hide();
+		notification.checkedWallet.hide();
 	}
 });
-emailInput.on('input',function () {
-	buttonActivation(secondNextButton);
-	if(isValidEmailAddress(emailInput.val()) === true){
-		emailInput.removeClass('warning');
-		wrongEmail.hide();
-		checkedSecond.show();
+input.email.on('input',function () {
+	buttonActivation(button.secondNext);
+	if(isValidEmailAddress(input.email.val()) === true){
+		input.email.removeClass('warning');
+		notification.wrongEmail.hide();
+		notification.checkedEmail.show();
 	} else {
-		checkedSecond.hide();
+		notification.checkedEmail.hide();
 	}
 
 });
-secondNextButton.click(function () {
-	if (bitcoinWalletAddress.val().length < 26 || bitcoinWalletAddress.val().length > 35) {
-		bitcoinWalletAddress.addClass('warning');
-		wrongWallet.show();
-		$('.btc-address').text('...in progress');
+button.secondNext.click(function () {
+	if (input.wallet.val().length < 26 || input.wallet.val().length > 35) {
+		input.wallet.addClass('warning');
+		notification.wrongWallet.show();
+		text.btcAddress.text('...in progress');
 	}
-	if(isValidEmailAddress(emailInput.val()) === false){
-		emailInput.addClass('warning');
-		wrongEmail.show();
+	if(isValidEmailAddress(input.email.val()) === false){
+		input.email.addClass('warning');
+		notification.wrongEmail.show();
 	}
-	if(checkedFirst.is(":visible") && checkedSecond.is(":visible")){
-		rightArea.fadeOut('normal', function(){ rightAreaCheck.fadeIn('normal'); });
-		$('.btc-address').text(bitcoinWalletAddress.val());
-		$('.btc-address-container').show();
+	if(notification.checkedWallet.is(":visible") && notification.checkedEmail.is(":visible")){
+		area.right.fadeOut('normal', function(){ area.payment.fadeIn('normal'); });
+		text.btcAddress.text(input.wallet.val());
+		container.btc.show();
 	}
 
 });
 
 // -----
 
-successButton.click(function () {
-	rightAreaCheck.fadeOut('normal', function(){ rightAreaSuccess.fadeIn('normal'); });
-	$('.second-section').addClass('success-gradient');
-	$('.left-area').addClass('success-left-side-gradient');
-	$('.t-hash').text(bitcoinWalletAddress.val());
-	$('.transaction-hash-container').show();
-	$('.we-accept-block').hide();
-	$('.back-arrow-container').hide();
-	$('.saved-for-text').html('<b>Completed</b> @'+ getCurrentTime());
+button.success.click(function () {
+	area.payment.fadeOut('normal', function(){
+		area.success.fadeIn('normal');
+	});
+	section.second.addClass('success-gradient');
+	area.left.addClass('success-left-side-gradient');
+	text.transHash.text(input.wallet.val());
+	container.transHash.show();
+	container.weAccept.hide();
+	container.back.hide();
+	text.savedFor.html('<b>Completed</b> @'+ getCurrentTime());
 });
 
-newPaymentButton.click(function () {
-	$('#2').fadeOut('normal', function(){ $('#1').fadeIn('normal'); });
+button.newPayment.click(function () {
+	section.second.fadeOut('normal', function(){ section.first.fadeIn('normal'); });
 	setTimeout(function () {
 		resetState();
 	},400);
 
 });
-//------
-errorButton.click(function () {
-	rightAreaCheck.fadeOut('normal', function(){ rightAreaError.fadeIn('normal'); });
-	$('.second-section').addClass('error-gradient');
-	$('.left-area').addClass('error-left-side-gradient');
-	$('.t-hash').text('---');
-	$('.transaction-hash-container').show();
-	rightAreaError.hide();
-	$('.we-accept-block').hide();
-	$('.back-arrow-container').hide();
-	$('.saved-for-text').html('<b>Completed</b> @'+ getCurrentTime());
-});
+
 //------
 
-payAgainButton.click(function () {
-	rightAreaError.fadeOut('normal', function(){ rightAreaCheck.fadeIn('normal'); });
-		$('.we-accept-block').show();
-		$('.second-section').removeClass('error-gradient');
-		$('.left-area').removeClass('error-left-side-gradient');
-		$('.back-arrow-container').show();
-		$('.saved-for-text').html('Exchange rate saved for <b>15:46</b>');
+button.error.click(function () {
+	area.payment.fadeOut('normal', function(){
+		area.error.fadeIn('normal');
+	});
+	section.second.addClass('error-gradient');
+	area.left.addClass('error-left-side-gradient');
+	text.transHash.text('---');
+	container.transHash.show();
+	area.error.hide();
+	container.weAccept.hide();
+	container.back.hide();
+	text.savedFor.html('<b>Completed</b> @'+ getCurrentTime());
 
 });
 
 //------
 
-$('.terms-of-use').click(function () {
-	$('.terms-of-use-container').show();
+button.payAgain.click(function () {
+	area.error.fadeOut('normal', function(){ area.payment.fadeIn('normal'); });
+		container.weAccept.show();
+		section.second.removeClass('error-gradient');
+		area.left.removeClass('error-left-side-gradient');
+		container.back.show();
+		text.savedFor.html('Exchange rate saved for <b>15:46</b>');
 });
-$('.terms-cross').click(function () {
-	$('.terms-of-use-container').hide();
+
+//------
+
+button.terms.click(function () {
+	container.terms.show();
+});
+button.cross.click(function () {
+	container.terms.hide();
 });
 
 
@@ -210,20 +241,20 @@ function buttonActivation(button){
 	button.removeClass('deactivated');
 }
 function resetState() {
-	rightAreaSuccess.hide();
-	rightArea.show();
-	$('.second-section').removeClass('success-gradient');
-	$('.left-area').removeClass('success-left-side-gradient');
-	rightAreaError.hide();
-	$('.second-section').removeClass('error-gradient');
-	$('.left-area').removeClass('error-left-side-gradient');
-	$('.transaction-hash-container').hide();
-	$('.transaction-hash-container').val('');
-	firstInput.val('');
-	secondInput.val('');
-	$('.we-accept-block').show();
-	$('.back-arrow-container').hide();
-	$('.saved-for-text').html('Exchange rate saved for <b>15:46</b>');
-	$('.we-accept-text').css('color','#999999');
-	buttonDeactivation(mainNextButton);
+	area.success.hide();
+	area.right.show();
+	section.second.removeClass('success-gradient');
+	area.left.removeClass('success-left-side-gradient');
+	area.error.hide();
+	section.second.removeClass('error-gradient');
+	area.left.removeClass('error-left-side-gradient');
+	container.transHash.hide();
+	container.transHash.val('');
+	input.usd.val('');
+	input.btc.val('');
+	container.weAccept.show();
+	container.back.hide();
+	text.savedFor.html('Exchange rate saved for <b>15:46</b>');
+	text.weAccept.css('color','#999999');
+	buttonDeactivation(button.mainNext);
 }
