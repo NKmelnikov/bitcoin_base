@@ -26,12 +26,24 @@ var newPaymentAfterError = $('.right-area-error .new-payment');
 firstInput.on('input',function () {
 	var usdVal = $(this).val();
 	secondInput.val((usdVal*0.00023).toFixed(5));
+	if ($(this).val()<0){
+		$(this).val(0);
+	}
+	if(secondInput.val() < 0){
+		secondInput.val(0);
+	}
 	$('.first-input-container, .second-input-container').removeClass('warning');
 	buttonActivation(mainNextButton);
 });
 secondInput.on('input',function () {
 	var btcVal = $(this).val();
 	firstInput.val((btcVal/0.00023).toFixed(2));
+	if ($(this).val()<0){
+		$(this).val(0);
+	}
+	if(firstInput.val() < 0){
+		firstInput.val(0);
+	}
 	$('.first-input-container, .second-input-container').removeClass('warning');
 	buttonActivation(mainNextButton);
 });
