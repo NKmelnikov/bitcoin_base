@@ -139,7 +139,10 @@ successButton.click(function () {
 
 newPaymentButton.click(function () {
 	$('#2').fadeOut('normal', function(){ $('#1').fadeIn('normal'); });
-	resetState();
+	setTimeout(function () {
+		resetState();
+	},400);
+
 });
 //------
 errorButton.click(function () {
@@ -157,10 +160,12 @@ errorButton.click(function () {
 
 payAgainButton.click(function () {
 	rightAreaError.fadeOut('normal', function(){ rightAreaCheck.fadeIn('normal'); });
-	$('.we-accept-block').show();
-	$('.second-section').removeClass('error-gradient');
-	$('.left-area').removeClass('error-left-side-gradient');
-	$('.back-arrow-container').show();
+		$('.we-accept-block').show();
+		$('.second-section').removeClass('error-gradient');
+		$('.left-area').removeClass('error-left-side-gradient');
+		$('.back-arrow-container').show();
+		$('.saved-for-text').html('Exchange rate saved for<b>15:46</b>');
+
 });
 
 //------
@@ -214,4 +219,5 @@ function resetState() {
 	$('.we-accept-block').show();
 	$('.back-arrow-container').hide();
 	$('.saved-for-text').html('Exchange rate saved for<b>15:46</b>');
+	buttonDeactivation();
 }
