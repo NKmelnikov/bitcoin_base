@@ -206,6 +206,27 @@ footer{
 	font-family: Nunito;
 	display: none;
 }
+
+.error-gradient {
+	background: -moz-linear-gradient(135deg, #e37575 0%, #eb925a 62%, #ffe010 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(135deg, #e37575 0%, #eb925a 62%, #ffe010 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #e37575 0%, #eb925a 62%, #ffe010 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.error-left-side-gradient{
+	background: -moz-linear-gradient(180deg, #f7d7d5 0%, #fae3ca 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(180deg, #f7d7d5 0%, #fae3ca 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(180deg, #f7d7d5 0%, #fae3ca 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.success-gradient {
+	background: -moz-linear-gradient(135deg, #76ce5b 0%, #d7f0ce 62%, #ffe010 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(135deg, #76ce5b 0%, #d7f0ce 62%, #ffe010 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #76ce5b 0%, #d7f0ce 62%, #ffe010 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.success-left-side-gradient{
+	background: -moz-linear-gradient(180deg, #d7f0ce 0%, #eaf3c3 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(180deg, #d7f0ce 0%, #eaf3c3 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(180deg, #d7f0ce 0%, #eaf3c3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
 .back-arrow-text{
 	position: absolute;
 	top:11vh;
@@ -276,7 +297,7 @@ footer{
 	display: none;
 	margin-top: 5vh;
 }
-.btc-address-text,.btc-address{
+.btc-address-text,.btc-address,.t-hash-text,.t-hash{
 	margin-left: 4vw;
 }
 .btc-address{
@@ -284,6 +305,16 @@ footer{
 	font-size: 20px;
 	font-weight: bold;
 	margin-top: 0;
+}
+.transaction-hash-container{
+	display: none;
+	margin-top: 5vh;
+}
+.t-hash-text{
+	color:gray;
+}
+.t-hash{
+
 }
 /*right-area*/
 
@@ -373,14 +404,14 @@ footer{
 .create-wallet-btn:active{
 	transform:scale(.95);
 }
-/*right-area-second*/
+/*right-area-check*/
 
-.right-area-second{
-	display: none;
+.right-area-check{
 	position: relative;
 	width: 60vw;
+	display:none;
 }
-.right-area-second p, .right-area-second img, .right-area-second button{
+.right-area-check p, .right-area-check img, .right-area-check button{
 	margin-left: 5vw;
 }
 .check-the-details-text{
@@ -392,8 +423,8 @@ footer{
 .hand-with-card{
 	position: absolute;
 	top: 17vh;
-	width:25%;
-	height:30%;
+	width:20%;
+	height:25%;
 }
 .you-ll-be-redirected-text{
 	position: absolute;
@@ -402,9 +433,109 @@ footer{
 	font-size: 16px;
 	width:300px;
 }
-.right-area-second .next-button{
+.right-area-check .next-button-success,.right-area-check .next-button-error{
+	width:360px;
 	position: absolute;
 	bottom: 5vh;
+	font-size: 22px;
+}
+.right-area-check .next-button-error{
+
+	right:5vw;
+}
+
+
+/*right-area-success*/
+
+
+.right-area-success{
+	position: relative;
+	width: 60vw;
+	display: none;
+}
+
+.success-dialog-img{
+	position: absolute;
+	left:5vw;
+	top:19vh;
+	width: 82px;
+	height:74px;
+}
+.money-in-wallet-text{
+	position: absolute;
+	top:16vh;
+	left:12vw;
+	font-size: 26px;
+	width: 400px;
+}
+.new-payment{
+	position: absolute;
+	bottom: 20vh;
+	left:5vw;
+	width:350px;
+	height:60px;
+	font-size: 22px;
+
+}
+.transaction-container{
+	position: absolute;
+	color: gray;
+	bottom: 2vw;
+	right:3vw;
+	text-align: right;
+	height: 50px;
+}
+
+.transaction-container p{
+	margin: 0 0 5px 0;
+}
+
+
+/*right-area-error*/
+
+.right-area-error{
+	position: relative;
+	width: 60vw;
+	display: none;
+}
+
+.error-dialog-img{
+	position: absolute;
+	left:5vw;
+	top:19vh;
+	width: 82px;
+	height:70px;
+
+}
+.payment-declined-container{
+	position: absolute;
+	top:17vh;
+	left:12vw!important;
+}
+.payment-was-declined-text{
+	font-size: 26px;
+}
+.invalid-details-text{
+	font-size: 14px;
+}
+.pay-again{
+	position: absolute;
+	bottom: 20vh;
+	left:5vw;
+	width:350px;
+	height:60px;
+	font-size: 22px;
+}
+.right-area-error .new-payment{
+	position: absolute;
+	bottom: 20vh;
+	left:30vw!important;
+	width:350px;
+	height:60px;
+	font-size: 22px;
+	border: 2px solid #2e3ce8;
+	background-color: white;
+	color:black;
 }
 /*second-section-end*/
 
@@ -457,6 +588,32 @@ footer{
 	margin-left: 30px;
 }
 
+/*terms - Of- use*/
+
+.terms-of-use-container{
+	width:60vw;
+	height:30vh;
+	position: absolute;
+	top:20vh;
+	left:15vw;
+	background-color: white;
+	font-family: Nunito;
+	font-size: 18px;
+	padding: 70px 120px 120px 120px;
+	display:none;
+}
+.terms-cross{
+	position: absolute;
+	top:15px;
+	right:15px;
+}
+.terms-title,.terms-first-part,.terms-second-part{
+	font-weight: bold;
+}
+.terms-title{
+	text-align: center;
+}
+
 
 /*----*/
 .wrong-wallet,.wrong-email{
@@ -488,7 +645,8 @@ button:hover,
 .terms-of-use:hover,
 .fb-logo-img:hover,
 .twitter-logo-img:hover,
-.back-arrow-text:hover
+.back-arrow-text:hover,
+.terms-cross:hover
 {
 	cursor: pointer;
 }

@@ -1,4 +1,7 @@
 
+var secondSection = $('.second-section');
+var leftArea = $('.second-section');
+
 var mainNextButton = $('.main-form-field .next-button');
 var secondNextButton = $('.right-area .next-button');
 var secondBackArrow = $('.second-section .back-arrow-text');
@@ -11,7 +14,14 @@ var checkedSecond = $('.checked-second');
 var wrongWallet = $('.wrong-wallet');
 var wrongEmail = $('.wrong-email');
 var rightArea = $('.right-area');
-var rightAreaSecond = $('.right-area-second');
+var rightAreaCheck = $('.right-area-check');
+var successButton = $('.next-button-success');
+var errorButton = $('.next-button-error');
+var rightAreaSuccess = $('.right-area-success');
+var newPaymentButton = $('.new-payment');
+var rightAreaError = $('.right-area-error');
+var payAgainButton = $('.pay-again');
+var newPaymentAfterError = $('.right-area-error .new-payment');
 
 firstInput.on('input',function () {
 	var usdVal = $(this).val();
@@ -21,16 +31,12 @@ firstInput.on('input',function () {
 });
 secondInput.on('input',function () {
 	var btcVal = $(this).val();
-	console.log(btcVal<0);
-
 	firstInput.val((btcVal/0.00023).toFixed(2));
 	$('.first-input-container, .second-input-container').removeClass('warning');
 	buttonActivation(mainNextButton);
 });
 
 mainNextButton.click(function () {
-	// $('#1').hide('slide', { direction: 'left' }, 500);
-	// $('#2').show('slide', { direction: 'right' }, 500);
 	$('#1').fadeOut('normal', function(){ $('#2').fadeIn('normal'); });
 	var chosenUsd  = firstInput.val();
 	var chosenBtc  = secondInput.val();
@@ -38,10 +44,8 @@ mainNextButton.click(function () {
 	$('.btc-second-span').text(chosenBtc);
 });
 secondBackArrow.click(function () {
-	// $('#2').hide('slide', { direction: 'right' }, 500);
-	// $('#1').show('slide', { direction: 'left' }, 500);
-	if (rightAreaSecond.is(":visible")) {
-		rightAreaSecond.fadeOut('normal', function(){ rightArea.fadeIn('normal'); });
+	if (rightAreaCheck.is(":visible")) {
+		rightAreaCheck.fadeOut('normal', function(){ rightArea.fadeIn('normal'); });
 	} else {
 		$('#2').fadeOut('normal', function(){ $('#1').fadeIn('normal'); });
 	}
@@ -98,7 +102,7 @@ secondNextButton.click(function () {
 		wrongEmail.show();
 	}
 	if(checkedFirst.is(":visible") && checkedSecond.is(":visible")){
-		rightArea.fadeOut('normal', function(){ rightAreaSecond.fadeIn('normal'); });
+		rightArea.fadeOut('normal', function(){ rightAreaCheck.fadeIn('normal'); });
 		$('.btc-address').text(bitcoinWalletAddress.val());
 		$('.btc-address-container').show();
 	}
@@ -107,14 +111,62 @@ secondNextButton.click(function () {
 
 // -----
 
+successButton.click(function () {
+	rightAreaCheck.fadeOut('normal', function(){ rightAreaSuccess.fadeIn('normal'); });
+	$('.second-section').addClass('success-gradient');
+	$('.left-area').addClass('success-left-side-gradient');
+	$('.t-hash').text(bitcoinWalletAddress.val());
+	$('.transaction-hash-container').show();
+	$('.we-accept-block').hide();
+	$('.back-arrow-rectangle').hide();
+	$('.back-arrow-text').hide();
 
 
+});
+
+newPaymentButton.click(function () {
+	$('#2').fadeOut('normal', function(){ $('#1').fadeIn('normal'); });
+	resetState();
+});
+//------
+errorButton.click(function () {
+	rightAreaCheck.fadeOut('normal', function(){ rightAreaError.fadeIn('normal'); });
+	$('.second-section').addClass('error-gradient');
+	$('.left-area').addClass('error-left-side-gradient');
+	$('.t-hash').text('---');
+	$('.transaction-hash-container').show();
+	rightAreaError.hide();
+	$('.we-accept-block').hide();
+	$('.back-arrow-rectangle').hide();
+	$('.back-arrow-text').hide();
+});
+//------
+
+payAgainButton.click(function () {
+	rightAreaError.fadeOut('normal', function(){ rightAreaCheck.fadeIn('normal'); });
+	$('.we-accept-block').show();
+	$('.second-section').removeClass('error-gradient');
+	$('.left-area').removeClass('error-left-side-gradient');
+	$('.back-arrow-rectangle').show();
+	$('.back-arrow-text').show();
+});
+
+//------
+
+$('.terms-of-use').click(function () {
+	$('.terms-of-use-container').show();
+});
+$('.terms-cross').click(function () {
+	$('.terms-of-use-container').hide();
+});
+
+
+//-----
 
 function isValidEmailAddress(emailAddress) {
 	var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
 	return pattern.test(emailAddress);
-};
-
+}
 
 function buttonDeactivation(button){
 	button.prop("disabled",true);
@@ -123,4 +175,20 @@ function buttonDeactivation(button){
 function buttonActivation(button){
 	button.prop("disabled",false);
 	button.removeClass('deactivated');
+}
+function resetState() {
+	rightAreaSuccess.hide();
+	rightArea.show();
+	$('.second-section').removeClass('success-gradient');
+	$('.left-area').removeClass('success-left-side-gradient');
+	rightAreaError.hide();
+	$('.second-section').removeClass('error-gradient');
+	$('.left-area').removeClass('error-left-side-gradient');
+	$('.transaction-hash-container').hide();
+	$('.transaction-hash-container').val('');
+	firstInput.val('');
+	secondInput.val('');
+	$('.we-accept-block').show();
+	$('.back-arrow-rectangle').hide();
+	$('.back-arrow-text').hide();
 }
