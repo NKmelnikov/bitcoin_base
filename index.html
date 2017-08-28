@@ -4,6 +4,9 @@
 	        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	        <title>card2btc</title>
 		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
 	</head>
@@ -67,16 +70,16 @@
 					</div>
 
 					<div class="bot-side">
-						<p class="you-pay-second-text">You pay <span class="usd-second-span">150</span><b>&nbsp USD</b></p>
-						<p class="you-get-second-text">You get <span class="btc-second-span">0.04</span><b>&nbsp BTC</b></p>
+						<p class="you-pay-second-text">You pay <span class="usd-second-span">150</span><b>&nbspUSD</b></p>
+						<p class="you-get-second-text">You get <span class="btc-second-span">0.04</span><b>&nbspBTC</b></p>
 					</div>
 					<div class="btc-address-container">
-						<p class="btc-address-text">BTC address</p>
-						<p class="btc-address"></p>
+						<span class="btc-address-text">BTC address</span>
+						<span class="btc-address"></span>
 					</div>
 					<div class="transaction-hash-container">
-						<p class="t-hash-text">Transaction hash</p>
-						<p class="t-hash"></p>
+						<span class="t-hash-text">Transaction hash</span>
+						<span class="t-hash"></span>
 					</div>
 				</div>
 
@@ -101,12 +104,14 @@
 
 				<div class="right-area-check">
 					<p class="check-the-details-text">Check the details and pay</p>
-					<img src="img/hand-with-card.png"
-					     alt="proceed payment"
-					     class="hand-with-card">
-					<p class="you-ll-be-redirected-text">
-						You will be redirected to the bank page
-						and returned back here after the payment</p>
+					<div class="hand-with-car-container">
+						<img src="img/hand-with-card.png"
+						     alt="proceed payment"
+						     class="hand-with-card">
+						<p class="you-ll-be-redirected-text">
+							You will be redirected to the bank page
+							and returned back here after the payment</p>
+					</div>
 					<button class="next-button next-button-success"><span>Go to payment(success)</span></button>
 					<button class="next-button next-button-error"><span>Go to payment(error)</span></button>
 				</div>

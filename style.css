@@ -16,7 +16,7 @@
 	font-family: 'fontca26c412eca7bdcf97850d597f3a9352';
 }
 
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,900');
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,700');
 
 @font-face {
@@ -347,17 +347,21 @@ footer {
 
 .btc-address-container {
 	display: none;
-	margin-top: 5vh;
+	margin-top: 6vh;
 }
-
+.btc-address-text{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
 .btc-address-text, .btc-address, .t-hash-text, .t-hash {
 	margin-left: 4vw;
 }
 
 .btc-address {
-	width: 20vw;
+	float:left;
+	width: 22vw;
 	height:3vh;
-	font-size: 1.5vw;
+	font-size: 20px;
 	font-weight: bold;
 	margin-top: 0;
 	word-wrap: break-word;
@@ -365,18 +369,21 @@ footer {
 
 .transaction-hash-container {
 	display: none;
-	margin-top: 5vh;
+	margin-top: 10vh;
 }
 
 .t-hash-text {
-	width: 20vw;
+	float: left;
+	width: 22vw;
 	color: gray;
 	height:3vh;
-	font-size: 1.2vw;
+	font-size: 18px;
 	word-wrap: break-word;
 }
 .t-hash{
+	float: left;
 	color: gray;
+	font-size: 20px;
 }
 
 /*right-area*/
@@ -489,28 +496,34 @@ footer {
 	display: none;
 }
 
-.right-area-check p, .right-area-check img, .right-area-check button {
+.right-area-check button {
 	margin-left: 5vw;
 }
 
 .check-the-details-text {
 	position: absolute;
 	top: 1vh;
+	left: 5vw;
 	font-size: 30px;
 	width: 350px;
 }
-
-.hand-with-card {
+.hand-with-car-container{
 	position: absolute;
-	top: 17vh;
-	width: 20%;
-	height: 25%;
+	left: 5vw;
+	top: 19vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.hand-with-card {
+	width: 165px;
+	height: 139px;
+	margin-right: 15px;
 }
 
 .you-ll-be-redirected-text {
-	position: absolute;
-	top: 27vh;
-	left: 15vw;
+	margin-top: 30px;
 	font-size: 16px;
 	width: 300px;
 }
@@ -535,9 +548,10 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
+	height: 60px;
 }
 .success-dialog-container img {
-	margin-right:15px;
+	margin-right:25px;
 }
 .right-area-success {
 	position: relative;
@@ -548,6 +562,7 @@ footer {
 .money-in-wallet-text {
 	font-size: 22px;
 	width: 400px;
+	padding-bottom: 12px;
 }
 
 .new-payment {
@@ -591,9 +606,11 @@ footer {
 	justify-content: flex-start;
 }
 .error-dialog-container img {
-	margin-right:15px;
+	margin-right:25px;
 }
-
+.payment-declined-container{
+	padding-bottom: 13px;
+}
 .payment-was-declined-text {
 	font-size: 26px;
 }
@@ -745,7 +762,8 @@ button:hover,
 .fb-logo-img:hover,
 .twitter-logo-img:hover,
 .back-arrow-text:hover,
-.terms-cross:hover {
+.terms-cross:hover,
+.contact-support:hover{
 	cursor: pointer;
 }
 
